@@ -1,0 +1,179 @@
+/* Print stylesheet for BUSINESS_SUMMARY.md -> PDF (Chrome headless --print-to-pdf).
+   Regenerate with docs/build_pdf.sh */
+
+@page {
+  size: A4;
+  margin: 20mm 18mm 18mm 18mm;
+}
+
+html {
+  font-size: 10.5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: "Charter", "Georgia", "Cambria", serif;
+  line-height: 1.55;
+  color: #1a1a1a;
+  max-width: none;
+  margin: 0;
+  hyphens: auto;
+}
+
+/* ---- Title block ------------------------------------------------------- */
+
+h1 {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 21pt;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.35em;
+  color: #111;
+}
+
+/* The subtitle paragraph immediately after the title. */
+h1 + p {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11.5pt;
+  line-height: 1.45;
+  color: #4a4a4a;
+  margin: 0 0 1.4em;
+}
+
+h2 {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14pt;
+  font-weight: 600;
+  color: #111;
+  margin: 1.9em 0 0.6em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid #d8d8d8;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11.5pt;
+  font-weight: 600;
+  margin: 1.4em 0 0.4em;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+p {
+  margin: 0 0 0.85em;
+  orphans: 3;
+  widows: 3;
+}
+
+strong { font-weight: 600; color: #111; }
+
+/* ---- Rules ------------------------------------------------------------- */
+
+hr {
+  border: 0;
+  border-top: 1px solid #d8d8d8;
+  margin: 1.6em 0;
+}
+
+/* ---- Pull quote (the framing question) --------------------------------- */
+
+blockquote {
+  margin: 1.2em 0;
+  padding: 0.1em 0 0.1em 1.1em;
+  border-left: 3px solid #b8b8b8;
+  color: #333;
+  font-style: italic;
+}
+
+blockquote p:last-child { margin-bottom: 0; }
+
+/* ---- Lists ------------------------------------------------------------- */
+
+ul, ol {
+  margin: 0 0 0.9em;
+  padding-left: 1.3em;
+}
+
+li { margin-bottom: 0.4em; }
+li > p { margin-bottom: 0.4em; }
+
+/* ---- Tables ------------------------------------------------------------ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1em 0 1.3em;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 9.5pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+thead th {
+  text-align: left;
+  font-weight: 600;
+  color: #111;
+  border-bottom: 1.5px solid #333;
+  padding: 0.5em 0.6em;
+}
+
+tbody td {
+  padding: 0.45em 0.6em;
+  border-bottom: 1px solid #e4e4e4;
+  vertical-align: top;
+}
+
+/* Numeric columns read better right-aligned; first column stays left. */
+tbody td:not(:first-child),
+thead th:not(:first-child) {
+  text-align: right;
+}
+
+tbody tr:last-child td { border-bottom: 1px solid #333; }
+
+/* ---- Figures ----------------------------------------------------------- */
+
+figure {
+  margin: 1.1em 0 1.3em;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Every chart carries its own title and subtitle; a repeated caption
+   underneath is noise. The alt text stays in the markup for accessibility. */
+figcaption { display: none; }
+
+/* A paragraph containing only an image should not split from its context. */
+p:has(> img) {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.2em;
+}
+
+/* ---- Closing note ------------------------------------------------------ */
+
+em { color: #333; }
+
+body > p:last-child em {
+  font-size: 9.5pt;
+  color: #666;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid #bbb;
+}
